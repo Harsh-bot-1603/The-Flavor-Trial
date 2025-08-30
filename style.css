@@ -17,10 +17,10 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 90vw;       /* was 80vw */
+    max-width: 90vw;      
     margin: auto;
-    height: 8vh;           /* keep relative to viewport */
-    width: 90vw;           /* was 80vw */
+    height: 8vh;           
+    width: 90vw;           
     border: 0px;
     padding: 0px;
     z-index: 100;
@@ -47,20 +47,20 @@ nav button:hover {
 
 #slideshow {
     position: fixed;
-    bottom: 40vh;          /* was 240px */
-    right: 12vw;           /* was 200px */
-    padding: 5vw;          /* was 100px */
+    bottom: 40vh;          
+    right: 12vw;           
+    padding: 5vw;          
     z-index: 10;
     background-color: transparent;
 }
 
 .entire-content {
     margin: auto;
-    width: 60vw;           /* was 190px fixed */
-    max-width: 300px;      /* safe cap */
+    width: 60vw;           
+    max-width: 300px;      
     perspective: 1000px;
     position: relative;
-    padding-top: 10vh;     /* was 80px */
+    padding-top: 10vh;     
 }
 
 
@@ -78,9 +78,9 @@ nav button:hover {
 }
 
 .content-crrousel figure {
-    width: 15vw;           /* was 15vw */
-    max-width: 200px;      /* prevents giant scaling */
-    height: 28vh;          /* was 28vh */
+    width: 15vw;           
+    max-width: 200px;     
+    height: 28vh;          
     max-height: 250px;
     border: 1px solid #3b444b;
     overflow: hidden;
@@ -122,7 +122,7 @@ nav button:hover {
     transition: all 300ns;
     width: 100%;
     height: 100%;
-    object-fit: fill;     /* ensures proper scaling */
+    object-fit: fill;     
 }
 
 .content-crrousel img:hover {
@@ -141,8 +141,8 @@ nav button:hover {
 }
 
 .carousel {
-    height: 100vh;         /* relative */
-    margin: -8vh;          /* was -50px */
+    height: 100vh;         
+    margin: -8vh;         
     position: relative;
     object-fit: fill;
 }
@@ -163,16 +163,16 @@ nav button:hover {
 .carousel .list .item img {
     width: 100%;
     height: 100vh;
-    object-fit: cover;     /* was fill → avoids stretching */
+    object-fit: cover;    
     filter: blur(5px);
 }
 
 .carousel .list .item .content {
     color: #713600;
     position: fixed;
-    left: 8%;              /* was 10% */
-    top: 5%;               /* was 2% */
-    width: 70vw;           /* was 800px fixed */
+    left: 8%;             
+    top: 5%;               
+    width: 70vw;           
     max-width: 800px;
     z-index: 20;
     filter: contrast(10px) brightness(10px);
@@ -191,7 +191,7 @@ nav button:hover {
     font-family: "DM Serif Text", serif;
     font-weight: 400;
     font-style: normal;
-    font-size: clamp(18px, 3vw, 40px);   /* was fixed 40px */
+    font-size: clamp(18px, 3vw, 40px);   
     margin: 0;
 }
 
@@ -199,7 +199,7 @@ nav button:hover {
     font-family: "DM Serif Text", serif;
     font-weight: 400;
     font-style: normal;
-    font-size: clamp(28px, 5vw, 60px);   /* was fixed 60px */
+    font-size: clamp(28px, 5vw, 60px);   
     margin: 5px;
 }
 
@@ -292,7 +292,7 @@ nav button:hover {
 }
 .thumbnail .heading {
     position: fixed;
-    top: 20%; /* was 50%, lifted up */
+    top: 20%; 
     left: 40%;
     transform: translate(-50%, -50%);
     color:  #713600;
@@ -309,4 +309,5 @@ nav button:hover {
 }
 .thumbnail .heading h1{
     z-index: 20;
+
 }
