@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #3D424A;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 90vw;       /* was 80vw */
+    margin: auto;
+    height: 8vh;           /* keep relative to viewport */
+    width: 90vw;           /* was 80vw */
+    border: 0px;
+    padding: 0px;
+    z-index: 100;
+    flex-wrap: wrap;
+}
+
+nav button {
+    margin: 30px;
+    padding: 5px;
+    border: transparent 5px 5px;
+    color: rgb(7, 7, 7);
+    position: relative;
+    z-index: 10;
+    border-color: transparent;
+    font-size: 16px;
+    border-radius: 10%;
+    background-color: transparent;
+}
+
+nav button:hover {
+    background-color: #bc781e;
+    font-size: 20px;
+}
+
+#slideshow {
+    position: fixed;
+    bottom: 40vh;          /* was 240px */
+    right: 12vw;           /* was 200px */
+    padding: 5vw;          /* was 100px */
+    z-index: 10;
+    background-color: transparent;
+}
+
+.entire-content {
+    margin: auto;
+    width: 60vw;           /* was 190px fixed */
+    max-width: 300px;      /* safe cap */
+    perspective: 1000px;
+    position: relative;
+    padding-top: 10vh;     /* was 80px */
+}
+
+
+.content-crrousel {
+    width: 100%;
+    position: absolute;
+    float: right;
+    animation: rotar 40s infinite linear;
+    transform-style: preserve-3d;
+}
+
+.content-crrousel:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+.content-crrousel figure {
+    width: 15vw;           /* was 15vw */
+    max-width: 200px;      /* prevents giant scaling */
+    height: 28vh;          /* was 28vh */
+    max-height: 250px;
+    border: 1px solid #3b444b;
+    overflow: hidden;
+    position: absolute;
+}
+
+.content-crrousel figure:nth-child(1) {
+    transform: rotateY(0deg) translateZ(300px);
+}
+
+.content-crrousel figure:nth-child(2) {
+    transform: rotateY(60deg) translateZ(300px);
+}
+
+.content-crrousel figure:nth-child(3) {
+    transform: rotateY(120deg) translateZ(300px);
+}
+
+.content-crrousel figure:nth-child(4) {
+    transform: rotateY(180deg) translateZ(300px);
+}
+
+.content-crrousel figure:nth-child(5) {
+    transform: rotateY(240deg) translateZ(300px);
+}
+
+.content-crrousel figure:nth-child(6) {
+    transform: rotateY(300deg) translateZ(300px);
+}
+
+.shadow {
+    position: absolute;
+    box-shadow: 0px 0px 20px 0px #000;
+    border-radius: 1px;
+}
+
+.content-crrousel img {
+    image-rendering: auto;
+    transition: all 300ns;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;     /* ensures proper scaling */
+}
+
+.content-crrousel img:hover {
+    transform: scale(1.2);
+    transition: all 300ms;
+}
+
+@keyframes rotar {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+.carousel {
+    height: 100vh;         /* relative */
+    margin: -8vh;          /* was -50px */
+    position: relative;
+    object-fit: fill;
+}
+
+
+.carousel .list .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    overflow: hidden;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    transform: scale(1.05);
+    /* start slightly zoomed in */
+    transition: opacity 0.8s ease, transform 1s ease;
+}
+
+.carousel .list .item img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;     /* was fill → avoids stretching */
+    filter: blur(5px);
+}
+
+.carousel .list .item .content {
+    color: #713600;
+    position: fixed;
+    left: 8%;              /* was 10% */
+    top: 5%;               /* was 2% */
+    width: 70vw;           /* was 800px fixed */
+    max-width: 800px;
+    z-index: 20;
+    filter: contrast(10px) brightness(10px);
+}
+
+.carousel .list .item .content pre {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(12px, 2vw, 18px);
+    z-index: 10;
+    filter: brightness(80px) contrast(50px);
+}
+
+.carousel .list .item .content h2 {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(18px, 3vw, 40px);   /* was fixed 40px */
+    margin: 0;
+}
+
+.carousel .list .item .content h1 {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(28px, 5vw, 60px);   /* was fixed 60px */
+    margin: 5px;
+}
+
+.carousel .list .item.active {
+    opacity: 1;
+    z-index: 8;
+    transform: scale(1);
+    /* zoom into place */
+}
+
+@keyframes showContent {
+    to {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+/* Animate content when slide becomes active */
+.carousel .list .item .content {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* When slide is active → show content */
+.carousel .list .item.active .content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Title animation */
+.carousel .list .item .content h2 {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: 0.2s;
+    /* appear a bit later */
+}
+
+.carousel .list .item.active .content h2 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Paragraphs staggered */
+.carousel .list .item .content pre {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.carousel .list .item.active .content pre:nth-child(1) {
+    transition-delay: 0.4s;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carousel .list .item.active .content pre:nth-child(3) {
+    transition-delay: 0.6s;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carousel .list .item .content b {
+    font-size: 20px;
+}
+
+
+.thumbnail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 150vw;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #222; /* optional: fallback background */
+}
+
+.thumbnail img{
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+.thumbnail .heading {
+    position: fixed;
+    top: 20%; /* was 50%, lifted up */
+    left: 40%;
+    transform: translate(-50%, -50%);
+    color:  #713600;
+    font-family: "DM Serif Text", serif;
+    font-size: clamp(5px, 8vw, 40px);
+    text-align: center;
+    z-index: 100;
+    pointer-events: none; /* allows clicks to pass through */
+}
+.thumbnail .heading h2{
+    z-index: 20;
+    margin-top: 2vh;
+    font-size: 30px;
+}
+.thumbnail .heading h1{
+    z-index: 20;
+}
